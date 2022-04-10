@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EYc-kv-tzw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="Mqs-Wi-GbM">
+            <objects>
+                <viewController id="EYc-kv-tzw" customClass="AuthViewController" customModule="MobUpTestTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W7C-S6-Zks">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Up Gallery" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZE-Qo-SpG">
+                                <rect key="frame" x="25" y="179.5" width="364" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mZE-Qo-SpG" secondAttribute="height" multiplier="330:115" id="MIr-up-dA5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <color key="textColor" red="0.070588235289999995" green="0.070588235289999995" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="123" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUD-U0-Gwd">
+                                <rect key="frame" x="25" y="789" width="364" height="56.5"/>
+                                <accessibility key="accessibilityConfiguration" label="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XUD-U0-Gwd" secondAttribute="height" multiplier="364:56" id="HfR-Zt-ARO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title=" Вход через VK" cornerStyle="medium">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <color key="baseBackgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="authButtonAction:" destination="EYc-kv-tzw" eventType="touchUpInside" id="piS-S1-XL5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qaa-V3-CAz"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XUD-U0-Gwd" secondAttribute="bottom" multiplier="1.06" id="9e8-JE-PaH"/>
+                            <constraint firstItem="XUD-U0-Gwd" firstAttribute="centerX" secondItem="qaa-V3-CAz" secondAttribute="centerX" id="Dww-4G-djU"/>
+                            <constraint firstItem="mZE-Qo-SpG" firstAttribute="leading" secondItem="qaa-V3-CAz" secondAttribute="trailing" multiplier="0.06" id="Ry8-8T-aUg"/>
+                            <constraint firstItem="mZE-Qo-SpG" firstAttribute="bottom" secondItem="W7C-S6-Zks" secondAttribute="bottom" multiplier="0.342" id="YPE-e8-1mh"/>
+                            <constraint firstItem="XUD-U0-Gwd" firstAttribute="width" secondItem="W7C-S6-Zks" secondAttribute="width" multiplier="0.88" id="ZzT-pC-AoA"/>
+                            <constraint firstItem="mZE-Qo-SpG" firstAttribute="width" secondItem="W7C-S6-Zks" secondAttribute="width" multiplier="0.88" id="ay5-ZN-4ah"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="b27-Oo-cgT"/>
+                    <connections>
+                        <outlet property="authButton" destination="XUD-U0-Gwd" id="PbU-Ga-UJK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxG-3u-074" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-228.98550724637684" y="-48.214285714285715"/>
+        </scene>
+    </scenes>
+</document>

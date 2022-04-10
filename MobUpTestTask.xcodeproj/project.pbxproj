@@ -11,11 +11,13 @@
 		022A44CF2801DED300424FC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022A44CE2801DED300424FC5 /* SceneDelegate.swift */; };
 		022A44D62801DED300424FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022A44D52801DED300424FC5 /* Assets.xcassets */; };
 		022A44D92801DED300424FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022A44D72801DED300424FC5 /* LaunchScreen.storyboard */; };
+		023D53F92803373E00578F6E /* UIImageViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D53F82803373E00578F6E /* UIImageViewExtention.swift */; };
+		023D53FB28033AB500578F6E /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D53FA28033AB500578F6E /* PhotosCell.swift */; };
 		029DE7252801E12100FFD473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DE7242801E12100FFD473 /* Main.storyboard */; };
 		029DE72B2801E52C00FFD473 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE72A2801E52C00FFD473 /* AuthViewController.swift */; };
 		029DE72D2801E56A00FFD473 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE72C2801E56A00FFD473 /* VKDelegate.swift */; };
 		029DE7312801EB0A00FFD473 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE7302801EB0A00FFD473 /* PhotosViewController.swift */; };
-		029DE7332801ECAB00FFD473 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029DE7322801ECAB00FFD473 /* View.xib */; };
+		029DE7332801ECAB00FFD473 /* PhotosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029DE7322801ECAB00FFD473 /* PhotosView.xib */; };
 		029DE7352801F24C00FFD473 /* PhotoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE7342801F24C00FFD473 /* PhotoDownloader.swift */; };
 		029DE7382802162400FFD473 /* PhotosStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE7372802162400FFD473 /* PhotosStruct.swift */; };
 		B452FF361BF31E881E93EB85 /* Pods_MobUpTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6BCFC3BEC8C9F1B3101A14 /* Pods_MobUpTestTask.framework */; };
@@ -28,11 +30,13 @@
 		022A44D52801DED300424FC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		022A44D82801DED300424FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		022A44DA2801DED300424FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023D53F82803373E00578F6E /* UIImageViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtention.swift; sourceTree = "<group>"; };
+		023D53FA28033AB500578F6E /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 		029DE7242801E12100FFD473 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = MobUpTestTask/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		029DE72A2801E52C00FFD473 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewController.swift; path = MobUpTestTask/AuthViewController.swift; sourceTree = SOURCE_ROOT; };
 		029DE72C2801E56A00FFD473 /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
 		029DE7302801EB0A00FFD473 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
-		029DE7322801ECAB00FFD473 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		029DE7322801ECAB00FFD473 /* PhotosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosView.xib; sourceTree = "<group>"; };
 		029DE7342801F24C00FFD473 /* PhotoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloader.swift; sourceTree = "<group>"; };
 		029DE7372802162400FFD473 /* PhotosStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStruct.swift; sourceTree = "<group>"; };
 		0B6BCFC3BEC8C9F1B3101A14 /* Pods_MobUpTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobUpTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +83,10 @@
 				029DE72A2801E52C00FFD473 /* AuthViewController.swift */,
 				029DE7342801F24C00FFD473 /* PhotoDownloader.swift */,
 				029DE7302801EB0A00FFD473 /* PhotosViewController.swift */,
+				023D53FA28033AB500578F6E /* PhotosCell.swift */,
+				023D53F82803373E00578F6E /* UIImageViewExtention.swift */,
 				029DE7372802162400FFD473 /* PhotosStruct.swift */,
-				029DE7322801ECAB00FFD473 /* View.xib */,
+				029DE7322801ECAB00FFD473 /* PhotosView.xib */,
 				022A44D52801DED300424FC5 /* Assets.xcassets */,
 				029DE72C2801E56A00FFD473 /* VKDelegate.swift */,
 				022A44D72801DED300424FC5 /* LaunchScreen.storyboard */,
@@ -167,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				022A44D92801DED300424FC5 /* LaunchScreen.storyboard in Resources */,
-				029DE7332801ECAB00FFD473 /* View.xib in Resources */,
+				029DE7332801ECAB00FFD473 /* PhotosView.xib in Resources */,
 				022A44D62801DED300424FC5 /* Assets.xcassets in Resources */,
 				029DE7252801E12100FFD473 /* Main.storyboard in Resources */,
 			);
@@ -222,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023D53F92803373E00578F6E /* UIImageViewExtention.swift in Sources */,
 				022A44CD2801DED300424FC5 /* AppDelegate.swift in Sources */,
 				029DE7352801F24C00FFD473 /* PhotoDownloader.swift in Sources */,
 				029DE7382802162400FFD473 /* PhotosStruct.swift in Sources */,
@@ -229,6 +236,7 @@
 				022A44CF2801DED300424FC5 /* SceneDelegate.swift in Sources */,
 				029DE72D2801E56A00FFD473 /* VKDelegate.swift in Sources */,
 				029DE7312801EB0A00FFD473 /* PhotosViewController.swift in Sources */,
+				023D53FB28033AB500578F6E /* PhotosCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

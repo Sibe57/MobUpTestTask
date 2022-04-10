@@ -12,10 +12,10 @@ import UIKit
 class PhotoDownloader {
     var myVC: PhotosViewController
     
-    let ownerID = "46598070"
-    let albumID = "profile"
+    let ownerID = "-128666765"
+    let albumID = "266276915"
     let photoSizes = "1"
-    let rev = "1"
+    let rev = "0"
     
     
     
@@ -39,6 +39,7 @@ class PhotoDownloader {
                 do {
            let responseDecoded = try JSONDecoder().decode(ResponseReciver.self, from: response)
             self.myVC.photos = responseDecoded.items
+                    self.myVC.photoCount = responseDecoded.count
                     completion(.success(true))
                 } catch let parsingError {
                     completion(.failure(.parsingError))

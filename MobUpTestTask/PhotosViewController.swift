@@ -7,63 +7,93 @@
 
 import UIKit
 import SwiftyVK
-import WebKit
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
 
 class PhotosViewController: UIViewController {
 
-
-    @IBOutlet weak var myPhoto: UIImageView!
     var photos = [Photo]()
+    let cellName = "photosCell"
+    var photoCount: Int = 0
+    var photosWasLoad = false
+    
+    @IBOutlet weak var photosCollectionView: UICollectionView!
+    
     lazy var downloader = PhotoDownloader(viewController: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPhotos()
+        photosCollectionView.register(PhotosCell.self, forCellWithReuseIdentifier: cellName)
+        photosCollectionView.dataSource = self
+        photosCollectionView.delegate = self
+        photosCollectionView.reloadData()
+        
+        self.navigationItem.title = "Mobile Up Gallery"
+        self.navigationController?.navigationBar.backgroundColor = .systemBackground
+        self.navigationController?.navigationBar.barTintColor = .systemBackground
+        let logOutButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logOut))
+        logOutButton.tintColor = .label
+        navigationItem.rightBarButtonItem = logOutButton
 
-        // Do any additional setup after loading the view.
     }
+    
+    @objc func logOut () {
+        VK.sessions.default.logOut()
+        self.dismiss(animated: true)
+    }
+    
     
     func loadPhotos() {
         downloader.loadPhotos {(success: Bool) -> Void in
-            if success {DispatchQueue.main.async {
-                let urlString = self.photos[0].hiResImage.url
-                let url = URL(string: urlString)
-                self.myPhoto.downloaded(from: url!)
+            if success {
+                DispatchQueue.main.async {
+                    self.photosWasLoad = true
+                    self.photosCollectionView.reloadData()
+                
+                
             }}
         }
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+
+
+extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let tryCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotosCell
+        guard let cell = tryCell else {
+            fatalError("nil in cell")
+        }
+        
+        guard photosWasLoad else {cell.cellImageView.image = UIImage(named: "noImage")
+            return cell
+        }
+        cell.cellImageView.image = UIImage(named: "noImage")
+        let urlString = self.photos[indexPath.row].hiResImage.url
+        let url = URL(string: urlString)
+        
+        cell.cellImageView.downloaded(from: url!)
+        cell.cellImageView.contentMode = .scaleAspectFill
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widhtCell = (collectionView.frame.width / CGFloat(2)) - 1
+        let heightCell = widhtCell
+
+        return CGSize(width: widhtCell , height: heightCell)
+    }
+    
+    
+}
+
+

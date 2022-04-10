@@ -43,7 +43,7 @@ class AuthViewController: UIViewController {
     }
     
     func photosShow() {
-        let root = PhotosViewController(nibName: "View", bundle: nil)
+        let root = PhotosViewController(nibName: "PhotosView", bundle: nil)
         let navigationController = UINavigationController(rootViewController: root)
         navigationController.modalPresentationStyle = .fullScreen
         

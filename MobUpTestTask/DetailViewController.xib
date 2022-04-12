@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MobUpTestTask" customModuleProvider="target">
+            <connections>
+                <outlet property="detailImageView" destination="KdR-iE-WtV" id="oHz-HI-951"/>
+                <outlet property="detailScrollView" destination="wgc-WO-DM7" id="Opf-dO-nWO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgc-WO-DM7">
+                    <rect key="frame" x="0.0" y="246" width="414" height="414"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KdR-iE-WtV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="KdR-iE-WtV" secondAttribute="height" multiplier="1:1" id="l5A-rG-kM1"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="KdR-iE-WtV" secondAttribute="trailing" id="ApN-gN-5dY"/>
+                        <constraint firstAttribute="width" secondItem="wgc-WO-DM7" secondAttribute="height" multiplier="1:1" id="CcJ-Ri-KOa"/>
+                        <constraint firstItem="KdR-iE-WtV" firstAttribute="centerX" secondItem="wgc-WO-DM7" secondAttribute="centerX" id="Pfk-W8-Fxv"/>
+                        <constraint firstAttribute="bottom" secondItem="KdR-iE-WtV" secondAttribute="bottom" id="WEU-03-q6O"/>
+                        <constraint firstItem="KdR-iE-WtV" firstAttribute="leading" secondItem="wgc-WO-DM7" secondAttribute="leading" id="hX9-6P-DOA"/>
+                        <constraint firstItem="KdR-iE-WtV" firstAttribute="centerY" secondItem="wgc-WO-DM7" secondAttribute="centerY" id="poz-B9-8AA"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="cMm-b4-yYV"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="aDo-vn-er7"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wgc-WO-DM7" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="OiB-YB-Grj"/>
+                <constraint firstItem="wgc-WO-DM7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q4a-Zz-GJK"/>
+                <constraint firstAttribute="trailing" secondItem="wgc-WO-DM7" secondAttribute="trailing" id="oT9-W1-eZ0"/>
+                <constraint firstItem="wgc-WO-DM7" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="zbU-hm-9fs"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="78.348214285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

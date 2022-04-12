@@ -20,6 +20,8 @@
 		029DE7332801ECAB00FFD473 /* PhotosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029DE7322801ECAB00FFD473 /* PhotosView.xib */; };
 		029DE7352801F24C00FFD473 /* PhotoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE7342801F24C00FFD473 /* PhotoDownloader.swift */; };
 		029DE7382802162400FFD473 /* PhotosStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE7372802162400FFD473 /* PhotosStruct.swift */; };
+		02F0FF4428051FA200D46444 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0FF4228051FA200D46444 /* DetailViewController.swift */; };
+		02F0FF4528051FA200D46444 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F0FF4328051FA200D46444 /* DetailViewController.xib */; };
 		B452FF361BF31E881E93EB85 /* Pods_MobUpTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B6BCFC3BEC8C9F1B3101A14 /* Pods_MobUpTestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		029DE7322801ECAB00FFD473 /* PhotosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosView.xib; sourceTree = "<group>"; };
 		029DE7342801F24C00FFD473 /* PhotoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloader.swift; sourceTree = "<group>"; };
 		029DE7372802162400FFD473 /* PhotosStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStruct.swift; sourceTree = "<group>"; };
+		02F0FF4228051FA200D46444 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		02F0FF4328051FA200D46444 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		0B6BCFC3BEC8C9F1B3101A14 /* Pods_MobUpTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobUpTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EFB1EFB5BA72C83B41406F /* Pods-MobUpTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobUpTestTask.release.xcconfig"; path = "Target Support Files/Pods-MobUpTestTask/Pods-MobUpTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		DB1DC0D652FE15B8F4ACC9F6 /* Pods-MobUpTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobUpTestTask.debug.xcconfig"; path = "Target Support Files/Pods-MobUpTestTask/Pods-MobUpTestTask.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				029DE72A2801E52C00FFD473 /* AuthViewController.swift */,
 				029DE7342801F24C00FFD473 /* PhotoDownloader.swift */,
 				029DE7302801EB0A00FFD473 /* PhotosViewController.swift */,
+				02F0FF4228051FA200D46444 /* DetailViewController.swift */,
+				02F0FF4328051FA200D46444 /* DetailViewController.xib */,
 				023D53FA28033AB500578F6E /* PhotosCell.swift */,
 				023D53F82803373E00578F6E /* UIImageViewExtention.swift */,
 				029DE7372802162400FFD473 /* PhotosStruct.swift */,
@@ -174,6 +180,7 @@
 			files = (
 				022A44D92801DED300424FC5 /* LaunchScreen.storyboard in Resources */,
 				029DE7332801ECAB00FFD473 /* PhotosView.xib in Resources */,
+				02F0FF4528051FA200D46444 /* DetailViewController.xib in Resources */,
 				022A44D62801DED300424FC5 /* Assets.xcassets in Resources */,
 				029DE7252801E12100FFD473 /* Main.storyboard in Resources */,
 			);
@@ -235,6 +242,7 @@
 				029DE72B2801E52C00FFD473 /* AuthViewController.swift in Sources */,
 				022A44CF2801DED300424FC5 /* SceneDelegate.swift in Sources */,
 				029DE72D2801E56A00FFD473 /* VKDelegate.swift in Sources */,
+				02F0FF4428051FA200D46444 /* DetailViewController.swift in Sources */,
 				029DE7312801EB0A00FFD473 /* PhotosViewController.swift in Sources */,
 				023D53FB28033AB500578F6E /* PhotosCell.swift in Sources */,
 			);

@@ -93,6 +93,20 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         return CGSize(width: widhtCell , height: heightCell)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        detailVC.detailURL = self.photos[indexPath.row].hiResImage.url
+        detailVC.date = photos[indexPath.row].date
+        navigationItem.backButtonTitle = ""
+        
+        guard let navigationController = navigationController else {
+            fatalError("nil Controller")
+        }
+        navigationController.navigationBar.tintColor = .black
+        navigationController.pushViewController(detailVC, animated: true)
+        
+    }
+    
     
 }
 

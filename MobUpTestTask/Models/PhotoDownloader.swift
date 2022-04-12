@@ -10,7 +10,11 @@ import SwiftyVK
 import UIKit
 
 class PhotoDownloader {
+    
+    //Create instanse of ViewController
     var myVC: PhotosViewController
+    
+    //Set Up JSON request
     
     let ownerID = "-128666765"
     let albumID = "266276915"
@@ -28,8 +32,9 @@ class PhotoDownloader {
         case parsingError
     }
     
+    //Get and parse JSON from VK
+    
     func photoRequest(completion: @escaping (Result<Bool, RequestError>) -> Void) {
-        print("sending")
         VK.API.Photos.get([
             .ownerId: ownerID,
             .albumId: albumID,
@@ -64,10 +69,7 @@ class PhotoDownloader {
             }
         }
     }
- 
-        
-        
-    }
+ }
     
     
 

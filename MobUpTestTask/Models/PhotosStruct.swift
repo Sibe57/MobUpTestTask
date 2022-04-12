@@ -8,6 +8,9 @@
 import Foundation
 
 
+//Structs for parsing JSON (map to convert JSONs to Swift objects)
+
+
 struct Photo: Decodable {
     let date: Double
     let data: [PhotoData]
@@ -53,7 +56,6 @@ struct PhotoData: Decodable {
         case width
         case url
     }
-    
 }
 
 struct ResponseReciver: Decodable {
@@ -65,12 +67,10 @@ struct ResponseReciver: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         items = try container.decode([Photo].self, forKey: .items)
         count = try container.decode(Int.self, forKey: .count)
-        
-    }
+        }
+    
     enum CodingKeys: String, CodingKey {
         case items
         case count
-        
     }
-    
 }

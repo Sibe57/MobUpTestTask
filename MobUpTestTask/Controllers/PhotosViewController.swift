@@ -14,7 +14,9 @@ class PhotosViewController: UIViewController {
     var photos = [Photo]()
     let cellName = "photosCell"
     var photoCount: Int = 0
-    var photosWasLoad = false
+    
+    //Dictionary for cache
+    var cached = [Int:UIImage]()
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
@@ -23,10 +25,15 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPhotos()
+        
+        //Set Up Collection View
+
         photosCollectionView.register(PhotosCell.self, forCellWithReuseIdentifier: cellName)
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         photosCollectionView.reloadData()
+        
+        //Set Up navigationBar
         
         self.navigationItem.title = "Mobile Up Gallery"
         self.navigationController?.navigationBar.backgroundColor = .systemBackground
@@ -37,26 +44,31 @@ class PhotosViewController: UIViewController {
 
     }
     
+    // VK logOut
+    
     @objc func logOut () {
         VK.sessions.default.logOut()
         self.dismiss(animated: true)
     }
     
+    //Get photos' URL from JSON
     
     func loadPhotos() {
         downloader.loadPhotos {(success: Bool) -> Void in
-            if success {
-                DispatchQueue.main.async {
-                    self.photosWasLoad = true
+            if success
+                {
+                DispatchQueue.main.sync {
                     self.photosCollectionView.reloadData()
+                }
                 
-                
-            }}
+            } else {
+                let alert = UIAlertController(title: "Не удается скачать фото", message: "Проверьте подключение к сети Интренет", preferredStyle: .alert)
+                let alertButton = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(alertButton)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-        
     }
-    
-    
 }
 
 
@@ -69,22 +81,26 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tryCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? PhotosCell
-        guard let cell = tryCell else {
-            fatalError("nil in cell")
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! PhotosCell
         
-        guard photosWasLoad else {cell.cellImageView.image = UIImage(named: "noImage")
-            return cell
-        }
-        cell.cellImageView.image = UIImage(named: "noImage")
-        let urlString = self.photos[indexPath.row].hiResImage.url
-        let url = URL(string: urlString)
         
-        cell.cellImageView.downloaded(from: url!)
-        cell.cellImageView.contentMode = .scaleAspectFill
+    //set image to cell (from internet of cache if availible)
+        
+        if cached[indexPath.row] != nil {
+            cell.cellImageView.image = cached[indexPath.row]
+            cell.cellImageView.contentMode = .scaleAspectFill
+        } else {
+                let urlString = self.photos[indexPath.row].hiResImage.url
+                let url = URL(string: urlString)
+                cell.cellImageView.downloaded(from: url!)
+                self.cached[indexPath.row] = cell.cellImageView.image
+                cell.cellImageView.contentMode = .scaleAspectFill
+
+        }
         return cell
     }
+    
+    // set size of cell
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widhtCell = (collectionView.frame.width / CGFloat(2)) - 1
@@ -93,8 +109,13 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         return CGSize(width: widhtCell , height: heightCell)
     }
     
+    
+    //send data to detail controller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
+        if cached[indexPath.row] != nil {
+            detailVC.image = cached[indexPath.row]
+        }
         detailVC.detailURL = self.photos[indexPath.row].hiResImage.url
         detailVC.date = photos[indexPath.row].date
         navigationItem.backButtonTitle = ""

@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+//extension for downloading image from internet by URL
+
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
         contentMode = mode

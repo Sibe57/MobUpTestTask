@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     var detailURL: String?
     var date: Double?
+    var image: UIImage?
     
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var detailImageView: UIImageView!
@@ -22,17 +23,21 @@ class DetailViewController: UIViewController {
         setDate()
         shareButton()
         zoomSetUp()
-
-        
     }
     
-    
+    //set image to cell (from internet of cache if availible)
     func loadImages() {
+        if image != nil {
+            detailImageView.image = image
+        } else {
         detailImageView.image = UIImage(named: "noImage")
         if let detailURL = detailURL, let detailURL  = URL(string: detailURL) {
             detailImageView.downloaded(from: detailURL, contentMode: .scaleAspectFill)
         }
+        }
     }
+    
+    //set date on top of screen
     
     func setDate() {
         if let date = date {
@@ -43,7 +48,8 @@ class DetailViewController: UIViewController {
         } else { title = "Дата неизвестна"}
     }
         
-        
+    // create share Button with share func
+    
     func shareButton() {
         let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .plain, target: self, action: #selector(shareAction))
         navigationItem.rightBarButtonItem = shareButton
@@ -54,21 +60,22 @@ class DetailViewController: UIViewController {
         
         let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityVC.completionWithItemsHandler = {
-            _, succes, _, _ in if succes == true {
+            action, succes, _, _ in if action == .saveToCameraRoll && succes == true {
                 self.successAlert()
-                
             }
         }
         present(activityVC, animated: true, completion: nil)
     }
     
     func successAlert() {
-        let alert = UIAlertController(title: nil, message: "Успешно сохранено", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Успех", message: "Сохранено в галлерее", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             alert.dismiss(animated: true, completion: nil)
         }))
         present(alert, animated: true, completion: nil)
     }
+    
+    //zoom func in Scroll View
     
     func zoomSetUp() {
         detailScrollView.delegate = self

@@ -10,7 +10,6 @@ import UIKit
 class PhotosCell: UICollectionViewCell {
     let cellImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "no Image")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
@@ -27,6 +26,11 @@ class PhotosCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellImageView.image = UIImage(named: "noImage")
     }
     
 }

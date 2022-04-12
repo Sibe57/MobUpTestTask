@@ -12,6 +12,8 @@ var vkDelegate: SwiftyVKDelegate?
 
 class VKDelegate: SwiftyVKDelegate {
     
+    //Set up SwiftyVK framework for use
+    
     let appID = "8131820"
     let scopes: Scopes = []
     
@@ -24,6 +26,7 @@ class VKDelegate: SwiftyVKDelegate {
         return scopes
     }
 
+        //add VK Auth window 
     func vkNeedToPresent(viewController: VKViewController) {
         if let rootController = UIApplication.shared.windows.first(where: \.isKeyWindow)?.rootViewController {
             rootController.present(viewController, animated: true)

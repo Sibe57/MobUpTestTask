@@ -4,8 +4,7 @@
 //
 //  Created by Федор Еронин on 10.04.2022.
 //
-
-import UIKit
+import SwiftyVK
 
 class PhotosCell: UICollectionViewCell {
     let cellImageView: UIImageView = {
@@ -34,4 +33,3 @@ class PhotosCell: UICollectionViewCell {
     }
     
 }
-

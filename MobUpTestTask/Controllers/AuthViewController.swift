@@ -5,7 +5,6 @@
 //  Created by Федор Еронин on 07.04.2022.
 //
 
-import UIKit
 import SwiftyVK
 
 
@@ -64,4 +63,3 @@ class AuthViewController: UIViewController {
     }
     
 }
-

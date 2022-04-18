@@ -5,7 +5,7 @@
 //  Created by Федор Еронин on 12.04.2022.
 //
 
-import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
     
@@ -25,16 +25,11 @@ class DetailViewController: UIViewController {
         zoomSetUp()
     }
     
-    //set image to cell (from internet of cache if availible)
+    //set image to cell (from internet or cache if availible)
     func loadImages() {
-        if image != nil {
-            detailImageView.image = image
-        } else {
         detailImageView.image = UIImage(named: "noImage")
-        if let detailURL = detailURL, let detailURL  = URL(string: detailURL) {
-            detailImageView.downloaded(from: detailURL, contentMode: .scaleAspectFill)
-        }
-        }
+        let url = URL(string: detailURL!)
+        detailImageView.kf.setImage(with: url)
     }
     
     //set date on top of screen

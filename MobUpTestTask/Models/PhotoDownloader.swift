@@ -5,9 +5,7 @@
 //  Created by Федор Еронин on 09.04.2022.
 //
 
-import Foundation
 import SwiftyVK
-import UIKit
 
 class PhotoDownloader {
     
@@ -44,7 +42,6 @@ class PhotoDownloader {
                 do {
            let responseDecoded = try JSONDecoder().decode(ResponseReciver.self, from: response)
             self.myVC.photos = responseDecoded.items
-                    self.myVC.photoCount = responseDecoded.count
                     completion(.success(true))
                 } catch let parsingError {
                     completion(.failure(.parsingError))
@@ -69,11 +66,4 @@ class PhotoDownloader {
             }
         }
     }
- }
-    
-    
-
-    
-    
-
-
+}

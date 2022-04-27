@@ -115,6 +115,8 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         let detailVC = DetailViewController()
         detailVC.detailURL = self.photos[indexPath.row].hiResImage.url
         detailVC.date = photos[indexPath.row].date
+        detailVC.photosCount = photos.count
+        detailVC.photos = photos
         navigationItem.backButtonTitle = ""
         
         guard let navigationController = navigationController else {

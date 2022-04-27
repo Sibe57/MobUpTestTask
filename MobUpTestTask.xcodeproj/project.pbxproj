@@ -12,6 +12,7 @@
 		022A44D62801DED300424FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022A44D52801DED300424FC5 /* Assets.xcassets */; };
 		023D53F92803373E00578F6E /* UIImageViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D53F82803373E00578F6E /* UIImageViewExtention.swift */; };
 		023D53FB28033AB500578F6E /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023D53FA28033AB500578F6E /* PhotosCell.swift */; };
+		029133A9281099E50035F8FC /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029133A8281099E50035F8FC /* DetailCell.swift */; };
 		029DE7252801E12100FFD473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029DE7242801E12100FFD473 /* Main.storyboard */; };
 		029DE72B2801E52C00FFD473 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE72A2801E52C00FFD473 /* AuthViewController.swift */; };
 		029DE72D2801E56A00FFD473 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DE72C2801E56A00FFD473 /* VKDelegate.swift */; };
@@ -32,6 +33,7 @@
 		022A44DA2801DED300424FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023D53F82803373E00578F6E /* UIImageViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtention.swift; sourceTree = "<group>"; };
 		023D53FA28033AB500578F6E /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		029133A8281099E50035F8FC /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailCell.swift; path = MobUpTestTask/Controllers/DetailCell.swift; sourceTree = SOURCE_ROOT; };
 		029DE7242801E12100FFD473 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = MobUpTestTask/Views/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		029DE72A2801E52C00FFD473 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthViewController.swift; path = MobUpTestTask/Controllers/AuthViewController.swift; sourceTree = SOURCE_ROOT; };
 		029DE72C2801E56A00FFD473 /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				029DE7302801EB0A00FFD473 /* PhotosViewController.swift */,
 				02F0FF4228051FA200D46444 /* DetailViewController.swift */,
+				029133A8281099E50035F8FC /* DetailCell.swift */,
 				023D53FA28033AB500578F6E /* PhotosCell.swift */,
 				029DE72A2801E52C00FFD473 /* AuthViewController.swift */,
 			);
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023D53F92803373E00578F6E /* UIImageViewExtention.swift in Sources */,
+				029133A9281099E50035F8FC /* DetailCell.swift in Sources */,
 				022A44CD2801DED300424FC5 /* AppDelegate.swift in Sources */,
 				029DE7352801F24C00FFD473 /* PhotoDownloader.swift in Sources */,
 				029DE7382802162400FFD473 /* PhotosStruct.swift in Sources */,

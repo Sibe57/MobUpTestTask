@@ -12,10 +12,15 @@ class DetailViewController: UIViewController {
     var detailURL: String?
     var date: Double?
     var image: UIImage?
+    let cellName = "detailCell"
+    var photosCount: Int = 0
+    var photos =  [Photo]()
     
+    @IBOutlet weak var downScrollView: UICollectionView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var detailImageView: UIImageView!
     
+    @IBOutlet weak var detailCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +28,7 @@ class DetailViewController: UIViewController {
         setDate()
         shareButton()
         zoomSetUp()
+        setUpCollectionView()
     }
     
     //set image to cell (from internet or cache if availible)
@@ -70,6 +76,7 @@ class DetailViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
     //zoom func in Scroll View
     
     func zoomSetUp() {
@@ -80,6 +87,13 @@ class DetailViewController: UIViewController {
         detailScrollView.bounces = false
     }
     
+    func setUpCollectionView() {
+        detailCollectionView.register(PhotosCell.self, forCellWithReuseIdentifier: cellName)
+        detailCollectionView.dataSource = self
+        detailCollectionView.delegate = self
+        detailCollectionView.reloadData()
+    }
+    
 }
 
 extension DetailViewController: UIScrollViewDelegate {
@@ -87,3 +101,49 @@ extension DetailViewController: UIScrollViewDelegate {
         return detailImageView
     }
 }
+
+extension DetailViewController: UICollectionViewDelegate {
+    
+}
+
+extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photosCount
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! PhotosCell
+        
+        //set image to cell (from internet or cache if availible)
+      
+        let url = URL(string: photos[indexPath.row].hiResImage.url)
+        cell.cellImageView.kf.setImage(with: url)
+        cell.cellImageView.contentMode = .scaleAspectFill
+
+        
+        return cell
+    }
+    
+    // set size of cell
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widhtCell = detailCollectionView.visibleSize.height
+        let heightCell = widhtCell
+
+        return CGSize(width: widhtCell , height: heightCell)
+    }
+    
+    
+    //send data to detail controller
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        detailURL = self.photos[indexPath.row].hiResImage.url
+        let url = URL(string: detailURL!)
+        detailImageView.kf.setImage(with: url)
+       
+    }
+}
+

@@ -11,8 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MobUpTestTask" customModuleProvider="target">
             <connections>
+                <outlet property="detailCollectionView" destination="YNF-8N-3L2" id="GYR-3g-DLC"/>
                 <outlet property="detailImageView" destination="KdR-iE-WtV" id="oHz-HI-951"/>
                 <outlet property="detailScrollView" destination="wgc-WO-DM7" id="Opf-dO-nWO"/>
+                <outlet property="downScrollView" destination="YNF-8N-3L2" id="qVP-mJ-2ox"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,12 +44,28 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="cMm-b4-yYV"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="aDo-vn-er7"/>
                 </scrollView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YNF-8N-3L2">
+                    <rect key="frame" x="0.0" y="798" width="414" height="62"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YNF-8N-3L2" secondAttribute="height" multiplier="375:56" id="oy6-bp-KzV"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="1" id="B2Z-7Q-Hzl">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="YNF-8N-3L2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D5v-cG-Yq1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YNF-8N-3L2" secondAttribute="trailing" id="Gli-ZR-my0"/>
                 <constraint firstItem="wgc-WO-DM7" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="OiB-YB-Grj"/>
                 <constraint firstItem="wgc-WO-DM7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q4a-Zz-GJK"/>
+                <constraint firstAttribute="bottom" secondItem="YNF-8N-3L2" secondAttribute="bottom" multiplier="1.042" id="cp3-ea-awY"/>
                 <constraint firstAttribute="trailing" secondItem="wgc-WO-DM7" secondAttribute="trailing" id="oT9-W1-eZ0"/>
                 <constraint firstItem="wgc-WO-DM7" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="zbU-hm-9fs"/>
             </constraints>

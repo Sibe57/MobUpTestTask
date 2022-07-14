@@ -11,6 +11,7 @@ import SwiftyVK
 class AuthViewController: UIViewController {
 
     @IBOutlet weak var authButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         authButton.layer.cornerRadius = 8
@@ -19,13 +20,20 @@ class AuthViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if VK.sessions.default.accessToken != nil {
             self.photosShow()
         }
     }
     
+    @IBAction func authButtonAction(_ sender: UIButton) {
+        if VK.sessions.default.accessToken == nil {
+                    auth()
+        } else {}
+    }
     
-    func auth() {
+    
+    private func auth() {
         DispatchQueue.global().async {
             VK.sessions.default.logIn(
                 onSuccess: { _ in
@@ -41,7 +49,7 @@ class AuthViewController: UIViewController {
         }
     }
     
-    func photosShow() {
+    private func photosShow() {
         let root = PhotosViewController(nibName: "PhotosView", bundle: nil)
         let navigationController = UINavigationController(rootViewController: root)
         navigationController.modalPresentationStyle = .fullScreen
@@ -49,17 +57,10 @@ class AuthViewController: UIViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
-    func loginAlert() {
+    private func loginAlert() {
             let alert = UIAlertController(title: "Ошибка авторизации", message: "Авторзация отменена", preferredStyle: .alert)
             let alertOK = UIAlertAction(title: "OK", style: .default)
             alert.addAction(alertOK)
             self.present(alert, animated: true, completion: nil)
     }
-
-    @IBAction func authButtonAction(_ sender: UIButton) {
-        if VK.sessions.default.accessToken == nil {
-                    auth()
-        } else {}
-    }
-    
 }

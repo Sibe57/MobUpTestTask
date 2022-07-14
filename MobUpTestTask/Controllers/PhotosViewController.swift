@@ -12,28 +12,24 @@ import Kingfisher
 class PhotosViewController: UIViewController {
 
     var photos = [Photo]()
-    var photosHaveBeenLoaded = false
-    let cellName = "photosCell"
-    lazy var downloader = PhotoDownloader(viewController: self)
+    private var photosHaveBeenLoaded = false
+    private let cellName = "photosCell"
+    private lazy var downloader = PhotoDownloader(viewController: self)
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Set Up Collection View
         setUpCollectionView()
-        
-        //Set Up navigationBar
         setUpNavBar()
         
         //Async get photos
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global().async {
             self.loadPhotos()
         }
-
     }
     
+    //Set Up Collection View
     func setUpCollectionView() {
         photosCollectionView.register(PhotosCell.self, forCellWithReuseIdentifier: cellName)
         photosCollectionView.dataSource = self
@@ -41,6 +37,7 @@ class PhotosViewController: UIViewController {
         photosCollectionView.reloadData()
     }
     
+    //Set Up navigationBar
     func setUpNavBar() {
         self.navigationItem.title = "Mobile Up Gallery"
         self.navigationController?.navigationBar.backgroundColor = .systemBackground

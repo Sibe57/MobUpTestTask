@@ -9,21 +9,22 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
-    var detailURL: String?
-    var date: Double?
-    var image: UIImage?
-    let cellName = "detailCell"
-    var photosCount: Int = 0
-    var photos =  [Photo]()
-    
     @IBOutlet weak var downScrollView: UICollectionView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var detailImageView: UIImageView!
     
     @IBOutlet weak var detailCollectionView: UICollectionView!
+    
+    var detailURL: String?
+    var date: Double?
+    var image: UIImage?
+    var photosCount: Int = 0
+    var photos =  [Photo]()
+    
+    private let cellName = "detailCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadImages()
         setDate()
         shareButton()
@@ -32,7 +33,7 @@ class DetailViewController: UIViewController {
     }
     
     //set image to cell (from internet or cache if availible)
-    func loadImages() {
+    private func loadImages() {
         detailImageView.image = UIImage(named: "noImage")
         let url = URL(string: detailURL!)
         detailImageView.kf.setImage(with: url)
@@ -40,7 +41,7 @@ class DetailViewController: UIViewController {
     
     //set date on top of screen
     
-    func setDate() {
+    private func setDate() {
         if let date = date {
             let date = Date(timeIntervalSince1970: date)
             let formatter = DateFormatter()
@@ -51,7 +52,7 @@ class DetailViewController: UIViewController {
         
     // create share Button with share func
     
-    func shareButton() {
+    private func shareButton() {
         let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .plain, target: self, action: #selector(shareAction))
         navigationItem.rightBarButtonItem = shareButton
     }
@@ -68,7 +69,7 @@ class DetailViewController: UIViewController {
         present(activityVC, animated: true, completion: nil)
     }
     
-    func successAlert() {
+    private func successAlert() {
         let alert = UIAlertController(title: "Успех", message: "Сохранено в галлерее", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             alert.dismiss(animated: true, completion: nil)
@@ -79,7 +80,7 @@ class DetailViewController: UIViewController {
     
     //zoom func in Scroll View
     
-    func zoomSetUp() {
+    private func zoomSetUp() {
         detailScrollView.delegate = self
         detailScrollView.minimumZoomScale = 1.0
         detailScrollView.maximumZoomScale = 2.5
@@ -87,7 +88,7 @@ class DetailViewController: UIViewController {
         detailScrollView.bounces = false
     }
     
-    func setUpCollectionView() {
+    private func setUpCollectionView() {
         detailCollectionView.register(PhotosCell.self, forCellWithReuseIdentifier: cellName)
         detailCollectionView.dataSource = self
         detailCollectionView.delegate = self
@@ -103,7 +104,6 @@ extension DetailViewController: UIScrollViewDelegate {
 }
 
 extension DetailViewController: UICollectionViewDelegate {
-    
 }
 
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
